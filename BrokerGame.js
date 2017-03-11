@@ -51,28 +51,28 @@ function gamerStep(activeGamer) {
     }
     alert("OK");
     alert("activeGamer" + activeGamer);
-    $("#butTrade").click(function() {
-        alert("click");
-        if (activeGamer == 1) {
-            $("#g1").html($("#g1").html() + '<input id="butTrade" type="button" name="" value="Ваш ход">');
-        }
-        if (activeGamer == 2) {
-            $("#g2").html($("#g2").html() + '<input type="button" name="" value="Ваш ход">');
-        }
-        if (activeGamer == 3) {
-            $("#g3").html($("#g3").html() + '<input type="button" name="" value="Ваш ход">');
-        }
-        if (activeGamer == 4) {
-            $("#g4").html($("#g4").html() + '<input type="button" name="" value="Ваш ход">');
-        }
-        $("#br2").addClass("hide");
-        // $('.brokerCard').css('display', 'none');
-        alert($('div.brokerCard').html());
-        // $(this).parent("div.brokerCard").toggleClass('hide');
-    });
+
 };
 
-
+$("body").on("click", "#butTrade", function() {
+    alert("click");
+    if (activeGamer !== 1) {
+        $("#g1").html($("#g1").html() + '<input id="butTrade" type="button" name="" value="Ваш ход">');
+    }
+    if (activeGamer !== 2) {
+        $("#g2").html($("#g2").html() + '<input type="button" name="" value="Ваш ход">');
+    }
+    if (activeGamer !== 3) {
+        $("#g3").html($("#g3").html() + '<input type="button" name="" value="Ваш ход">');
+    }
+    if (activeGamer !== 4) {
+        $("#g4").html($("#g4").html() + '<input type="button" name="" value="Ваш ход">');
+    }
+    $("#br2").addClass("hide");
+    // $('.brokerCard').css('display', 'none');
+    alert($('div.brokerCard').html());
+    // $(this).parent("div.brokerCard").toggleClass('hide');
+});
 
 var activeGamer = 1;
 var gamers = ['Игрок', 'Игрок', 'Игрок', 'Игрок']; //Имена игроков
