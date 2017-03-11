@@ -1,0 +1,142 @@
+body {
+    width: 1200px;
+}
+
+div.game {
+    width: 1200px;
+    height: 1000px;
+    /*border: solid red;*/
+}
+
+div.general {
+    display: block;
+    height: 35%;
+    border: solid green;
+    padding: 5px;
+    background-color: #50c5f0;
+}
+
+ul.shareList {
+	float: left;
+	height: 100%;
+    width: 300px;
+    border: solid black 1px;
+    /*background-color: #50c5f0;*/
+}
+
+ul.shareList li {
+	display: block;
+    height: 75px;
+    padding: 5px;
+    border: solid yellow 1px;
+}
+
+ul.shareList p {
+	float: left;
+}
+ul.shareList h1 {
+	font-size: 28px;
+	font-weight: bolder;
+	display: inline;
+	position: absolute;
+	clear: both;
+	height: 60px;
+	width: 80px;
+	padding: 10px;
+	padding-top: 24px;
+}
+div.board {
+	background-image: url(brokers.jpg);
+	display: inline-block;
+	width: 600px;
+	height: 100%;
+	border: solid 1px;
+	clear: both;
+}
+.board ul {
+	display: inline-block;
+	float: left;
+	width: 95%;
+	height: 18%;
+	padding: 2%;
+}
+.board li {
+	display: block;
+	clear: both;
+	height: 100%;
+	width: 30%;
+	color: red;
+	margin-right: auto;
+	background-color: yellow;
+	opacity: .5;
+}
+.board p {
+	position: fixed;
+	text-align: center;
+	background-color: white;
+	opacity: .8;
+}
+ul.analitics {
+	display: inline-block;
+	float: right;
+	width: 263px;
+	height: 100%;
+	background-color: #50c5f0;
+	border: solid 1px;
+}
+ul.analitics li {
+	display: block;
+	position: relative;
+	height: 24%;
+}
+div.brokerCards {
+	display: block;
+	position: relative;
+	height: 58%;
+	width: 100%;
+	clear: both;
+	border: solid yellow 4px;
+	background-color: #dae4ed;
+}
+div.brokerCards div.brokerCard {
+	/*display: inline-block;*/
+	float: left;
+	width: 220px;
+	height: 95%;
+	padding: 13px;
+	padding-right: 0px;
+	
+	border-right: 0;
+	
+}
+.brokerCard ul.shareList {
+	width: 220px;
+	background-color: #dae4ed;
+
+	border: 0;
+}
+.brokerCard ul.shareList li:first-child {
+	background-color: #cee2d3;
+	color: #813e24;
+}
+.brokerCard ul.shareList h2 {
+	font-size: 34px;
+	padding-top: 20px;
+	text-align: center;
+	font-weight: bolder;
+}
+.brokerCard ul.shareList input {
+	width: 190px;
+	font-size: 20px;
+	font-weight: bolder;
+}
+.board ul.hide {
+	display: none;
+}
+div.brokerCard.hide {
+	display: none;
+}
+.hide {
+	display: none;
+}
+
