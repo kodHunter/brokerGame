@@ -60,7 +60,7 @@ div.board {
 	height: 18%;
 	padding: 2%;
 }
-.board li {
+.scale {
 	display: block;
 	clear: both;
 	height: 100%;
@@ -88,6 +88,18 @@ ul.analitics li {
 	display: block;
 	position: relative;
 	height: 24%;
+}
+.analitics input {
+	float: right;
+	font-size: 28px;
+	font-weight: bolder;
+	color: #d60c21;
+	border: solid 3px yellow;
+	background-color: #cee3d6; 
+	border-radius: 5px;
+	padding: 5px 15px 5px 15px;
+	margin-top: 25px;
+	margin-right: 10px;
 }
 div.brokerCards {
 	display: block;
@@ -119,6 +131,13 @@ div.brokerCards div.brokerCard {
 	background-color: #cee2d3;
 	color: #813e24;
 }
+.brokerCard ul.shareList h1 {
+	width: 180px;
+	font-size: 30px;
+	padding-top: 20px;
+	text-align: center;
+	font-weight: bolder;
+}
 .brokerCard ul.shareList h2 {
 	font-size: 34px;
 	padding-top: 20px;
@@ -130,6 +149,66 @@ div.brokerCards div.brokerCard {
 	font-size: 20px;
 	font-weight: bolder;
 }
+div.cangerLotCards {
+	/*display: inline-block;*/
+	visibility: hidden
+	float: left;
+	width: 700px;
+	max-width: 700px;
+	height: 90%;
+	margin: 13px;
+	padding-left: : 0px;
+	border: solid 2px yellow;
+	/*border-right: 0;*/
+	/*overflow-y: scroll;*/
+	/*overflow: scroll;*/
+	overflow: auto;
+}
+div.cangerLotCards p {
+	padding: 18px;
+	text-align: center;
+	border-bottom: solid 2px yellow;
+	
+}
+.cangerLotCards:hover > ul {
+  opacity: 0.5;
+}
+.cangerLotCards:hover > ul:hover {
+  opacity: 1.0;
+  background-color: #def3ad;
+}
+
+ul.lotCard {
+	position: relative;
+	background-color: lightgrey;
+	margin: 5px;
+	float: left;
+	width: 80px;
+	border: solid 4px;
+}
+ul.lotCard:focus {
+     background: #ffe; /* Цвет фона */
+     border: 1px solid #29B0D9; /* Параметры рамки */
+}
+.lotCard li {
+	height: 85px;
+}
+.lotCard h1 {
+	color: red;
+	
+	font-size: 38px;
+	padding-top: 18px;
+	text-align: center;
+	font-weight: bolder;
+}
+.lotCard h2 {
+	font-size: 34px;
+	padding-top: 20px;
+	text-align: center;
+	font-weight: bolder;
+	border-top: solid 2px;
+}
+
 .board ul.hide {
 	display: none;
 }
@@ -139,4 +218,5 @@ div.brokerCard.hide {
 .hide {
 	display: none;
 }
+
 

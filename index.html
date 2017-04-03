@@ -6,8 +6,9 @@
     <title>Broker Game</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="http:/pjax.googleapis.compjax/libs/jquery/1/jquery.min.js"></script> -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script> -->
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700&subset=latin,cyrillic" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" type="text/css" href="Reset.css" media="all" />
     <link rel="stylesheet" type="text/css" href="BrokerGame.css" media="all" />
@@ -19,36 +20,33 @@
             <ul class="shareList">
                 <li>
                     <p><img src="bukovel.png" /></p>
-                    <h1>50</h1>
+                    <h1 id="rl1">50</h1>
                 </li>
                 <li>
-                    <p><img src="newpost.png" />
-                        <p>
-                            <h1>50</h1>
+                    <p><img src="newpost.png" /><p>
+                    <h1 id="rl2">50</h1>
                 </li>
                 <li>
-                    <p><img src="privat24.png" />
-                        <p>
-                            <h1>50</h1>
+                    <p><img src="privat24.png" /><p>
+                    <h1 id="rl3">50</h1>
                 </li>
                 <li>
-                    <p><img src="kbug.png" />
-                        <p>
-                            <h1>50</h1>
+                    <p><img src="kbug.png" /><p>
+                    <h1 id="rl4">50</h1>
                 </li>
             </ul>
             <div class="board">
                 <ul>
-                    <li class="scale" id="s">
+                    <li class="scale" id="s1">
                 </ul>
                 <ul>
-                    <li class="scale" id="s">
+                    <li class="scale" id="s2">
                 </ul>
                 <ul>
-                    <li class="scale" id="s">
+                    <li class="scale" id="s3">
                 </ul>
                 <ul>
-                    <li class="scale" id="s">
+                    <li class="scale" id="s4">
                 </ul>
                 <p class="" id="inf"> Правила игры.
                     <br> BROKER - экономическая игра имитирующая торговлю акциями на бирже.
@@ -84,40 +82,45 @@
                     <br>
                     <br>
                     <br> ИГРОК №1 -
-                    <input id="gamer1" type="text" name="" value="имя">
+                    <input id="gamer1" type="text" name="" value="Игрок-1">
                     <br>
                     <br>
                     <br>
                     <br> ИГРОК №2-
-                    <input id="gamer2" type="text" name="" value="">
+                    <input id="gamer2" type="text" name="" value="Игрок-2">
                     <br>
                     <br>
                     <br>
                     <br> ИГРОК №3 -
-                    <input id="gamer3" type="text" name="" value="">
+                    <input id="gamer3" type="text" name="" value="Игрок-3">
                     <br>
                     <br>
                     <br>
                     <br> ИГРОК №4 -
-                    <input id="gamer4" type="text" name="" value="">
+                    <input id="gamer4" type="text" name="" value="Игрок-4">
                     <br>
                     <br>
-                    <input id="butNext" type="button" value="ПРОДОЛЖИТЬ " />
+                    <!-- <input id="butNext" type="button" value="ПРОДОЛЖИТЬ " /> -->
                     <br>
                 </p>
+                
             </div>
             <ul class="analitics">
                 <li>прогноз</li>
                 <li>коррекции</li>
                 <li>курсов</li>
-                <li>акций</li>
+                <li>акций
+                    <p>
+                    <input class="hide" id="butNext" type="button" value="ПРОДОЛЖИТЬ " />
+                    </p>
+                </li>
             </ul>
         </div>
         <div class="brokerCards">
             <div class="brokerCard">
                 <ul class="shareList">
                     <li>
-                        <h1 >Имя</h1>
+                        <h1>Имя игрока</h1>
                     </li>
                     <li>
                         <h1>Банковский счет</h1>
@@ -142,19 +145,19 @@
                         <h1 id="g1">0</h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1 id="c1">Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2 class="lot1">к-во а</h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2 class="lot2">акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot3">к-во акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot4">к-во акций</h2>
                     </li>
                 </ul>
             </div>
@@ -164,132 +167,190 @@
                         <h1 id="g2">Игрок-2</h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1 id="c2">Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2 class="lot1">к-во а</h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2 class="lot2">акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot3">к-во акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot4">к-во акций</h2>
                     </li>
                 </ul>
             </div>
-            <div class="brokerCard">
+            <div id="br3" class="brokerCard">
                 <ul class="shareList">
                     <li>
                         <h1 id="g3">Игрок-3</h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1 id="c3">Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2 class="lot1">к-во а</h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2 class="lot2">акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot3">к-во акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot4">к-во акций</h2>
                     </li>
                 </ul>
             </div>
-            <div class="brokerCard">
+            <div id="br4" class="brokerCard">
                 <ul class="shareList">
                     <li>
                         <h1 id="g4">Игрок-4</h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1 id="c4">Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2 class="lot1">к-во а</h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2 class="lot2">акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot3">к-во акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 class="lot4">к-во акций</h2>
                     </li>
                 </ul>
             </div>
-            <div class="trade, brokerCard, hide">
+            <div class="brokerCard trade sellLot hide">
                 <ul class="shareList">
                     <li>
-                        <h1>купить</h1>
+                        <h1>Продать акции</h1>
                     </li>
                     <li>
                         <h1>Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2><input class="sell" type="number" name="1" value=""></h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2><input class="sell" type="number" name="2" value=""></h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2><input class="sell" type="number" name="3" value=""></h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2><input class="sell" type="number" name="4" value=""></h2>
                     </li>
                 </ul>
             </div>
-            <div class="trade, brokerCard, hide">
+            <div class="brokerCard trade buyLot hide">
                 <ul class="shareList">
                     <li>
-                        <h1>продать</h1>
+                        <h1>Купить акции</h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1>0</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2><input class="buy" type="number" name="1" value=""></h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2><input class="buy" type="number" name="2" value=""></h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2><input class="buy" type="number" name="3" value=""></h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2><input class="buy" type="number" name="4" value=""></h2>
                     </li>
                 </ul>
             </div>
-            <div class="trade, brokerCard, hide">
+            <div class="brokerCard result hide">
                 <ul class="shareList">
                     <li>
-                        <h1>итог</h1>
+                        <h1><input class="hide" id="resultBidding" type="button" name="" value="Результат торгов">
+                            <input class="hide" id="changeRating" type="button" name="Изменить курс акций" value="Курс акций">
+                        </h1>
                     </li>
                     <li>
-                        <h1>Сумма 000</h1>
+                        <h1 id="userCash">Сумма 000</h1>
                     </li>
                     <li>
-                        <h2>к-во а</h2>
+                        <h2 id="lot1">к-во а</h2>
                     </li>
                     <li>
-                        <h2>акций</h2>
+                        <h2 id="lot2">акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 id="lot3">к-во акций</h2>
                     </li>
                     <li>
-                        <h2>к-во акций</h2>
+                        <h2 id="lot4">к-во акций</h2>
                     </li>
                 </ul>
             </div>
+            <div class="cangerLotCards">
+                <p>Выбирите одну из имеющихся карточек для изменения курсов акций. Обратите внимание на то, что именения курсов согласно выбранной карточки, должны привести к росту Вашего капитала и ,по возможности, ослабить позиции конкурентов.</p>
+                <!-- <ul class="lotCard" id="draggable">
+                    <li>
+                        <h1 id="">111</h1>
+                    </li>
+                    <li>
+                        <h2 id="">101</h2>
+                    </li>
+                    <li>
+                        <h2 id="">-101</h2>
+                    </li>
+                    <li>
+                        <h2 id="">101</h2>
+                    </li>
+                    <li>
+                        <h2 id="">-301</h2>
+                    </li>
+                </ul> -->
+                <!-- <ul class="lotCard">
+                    <li>
+                        <h1 id="">1</h1>
+                    </li>
+                    <li>
+                        <h2 id="">10</h2>
+                    </li>
+                    <li>
+                        <h2 id="">-10</h2>
+                    </li>
+                    <li>
+                        <h2 id="">0</h2>
+                    </li>
+                    <li>
+                        <h2 id="">-30</h2>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="construct hide">
+            <ul class="lotCard">
+                <li>
+                    <h1 id="clc">0</h1>
+                </li>
+                <li>
+                    <h2 id="clc0">0</h2>
+                </li>
+                <li>
+                    <h2 id="clc1">0</h2>
+                </li>
+                <li>
+                    <h2 id="clc2">0</h2>
+                </li>
+                <li>
+                    <h2 id="clc3">0</h2>
+                </li>
+            </ul>
         </div>
         <!--         <script type="text/javascript">
         var a1 = 10,
