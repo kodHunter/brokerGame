@@ -134,6 +134,8 @@ $("body").on("click", "#butTrade", function() {
 
     $("#resultBidding").show();
 
+    $("input.sell , input.buy").val("0")  // обнуление содержимого
+
 });
 
 $(".trade input").focusin(function() {
