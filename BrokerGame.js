@@ -316,10 +316,11 @@ $("body").on("click", "#changeRating", function() {
         var lotCard = cangerLotCards[nlc - 1];
         cangerLotCards.splice(nlc - 1, 1);
         console.log(cangerLotCards);
+        maxRating = 1;
         //сохраняем остаток карточек игрока в массиве
         listCangerLotCards[activeGamer - 1] = cangerLotCards;
         //изменение курсов и запись новых значений в игровое поле
-        var maxRating = 0;
+        
         for (var i = 0; i < 4; i++) {
             var ratingLot = ratingLots[i];
             var cr = lotCard[i];
@@ -351,21 +352,8 @@ $("body").on("click", "#changeRating", function() {
 
         }
         console.log(maxRating);
-        for (var i = 0; i < 4; i++) {
-            var ratingDiagram = Math.round(ratingLots[i] * 100 / maxRating);
-            if (i == 0) {
-                $("#s1").width(ratingDiagram + "%");
-            }
-            if (i == 1) {
-                $("#s2").width(ratingDiagram + "%");
-            }
-            if (i == 2) {
-                $("#s3").width(ratingDiagram + "%");
-            }
-            if (i == 3) {
-                $("#s4").width(ratingDiagram + "%");
-            }
-        }
+        displayRatingDiagram(maxRating, ratingLots);
+
 
         if (activeGamer !== 1) {
             $("#br1").slideDown(2500);
@@ -468,11 +456,13 @@ var activeGamer = 4; //Текущий игрок
 var activeUserCash;
 // var activeUserCash = usersCash[activeGamer - 1]; //Счет текущего игрока
 var maxLot;
+var maxRating = 1;
 
 // Функции
 
+//Записываем к-во акций игрока  в поля
 function displayNumberShares(divBr, brokerLots) {
-    //Записываем к-во акций игрока k в поля
+    
     for (var i = 0; i < 4; i++) {
         if (i == 0) {
             divBr.find("h2.lot1").text(brokerLots[i]);
@@ -488,6 +478,26 @@ function displayNumberShares(divBr, brokerLots) {
         }
     }
 
+};
+
+//Изменяем графики курсов
+function displayRatingDiagram() {
+   
+    for (var i = 0; i < 4; i++) {
+        var ratingDiagram = Math.round(ratingLots[i] * 100 / maxRating);
+        if (i == 0) {
+            $("#s1").width(ratingDiagram + "%");
+        }
+        if (i == 1) {
+            $("#s2").width(ratingDiagram + "%");
+        }
+        if (i == 2) {
+            $("#s3").width(ratingDiagram + "%");
+        }
+        if (i == 3) {
+            $("#s4").width(ratingDiagram + "%");
+        }
+    }
 };
 
 
