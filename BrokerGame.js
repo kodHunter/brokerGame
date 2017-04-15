@@ -10,82 +10,58 @@ $("#butNext").click(function() {
     $("#gamers").addClass('hide');
     $(this).hide();
     for (var k = 1; k < 5; k++) {
-        var text = document.getElementsByTagName("input")[k]; // Запись имен игроков в массив
+        var text = document.getElementsByTagName("input")[k]; // Считывание имен игроков из input
         var val = text.value;
-        gamers[k - 1] = val;
-        var brokerLots = userslots[k - 1] //Количество акций игрока - массив
+        gamers[k - 1] = val; // Запись имен игроков в массив
+        var brokerLots = userslots[k - 1] //Количество акций игрока k - массив
         if (k == 1) {
             $("#g1").text(val);
             $("#c1").text(usersCash[k - 1]);
-            for (var i = 0; i < 4; i++) { //Записываем к-во акций игрока1 в поля
-                if (i == 0) {
-                    $("div#br1").find("h2.lot1").text(brokerLots[i]);
-                }
-                if (i == 1) {
-                    $("div#br1").find("h2.lot2").text(brokerLots[i]);
-                }
-                if (i == 2) {
-                    $("div#br1").find("h2.lot3").text(brokerLots[i]);
-                }
-                if (i == 3) {
-                    $("div#br1").find("h2.lot4").text(brokerLots[i]);
-                }
-            }
+            var divBr = $("div#br1");
+            // displayNumberShares(divBr, brokerLots);
         }
+
         if (k == 2) {
             $("#g2").text(val);
             $("#c2").text(usersCash[k - 1]);
-            for (var i = 0; i < 4; i++) { //Записываем к-во акций игрока2 в поля
-                if (i == 0) {
-                    $("div#br2").find("h2.lot1").text(brokerLots[i]);
-                }
-                if (i == 1) {
-                    $("div#br2").find("h2.lot2").text(brokerLots[i]);
-                }
-                if (i == 2) {
-                    $("div#br2").find("h2.lot3").text(brokerLots[i]);
-                }
-                if (i == 3) {
-                    $("div#br2").find("h2.lot4").text(brokerLots[i]);
-                }
-            }
+            var divBr = $("div#br2");
+            // displayNumberShares(divBr, brokerLots);
+
         }
         if (k == 3) {
             $("#g3").text(val);
             $("#c3").text(usersCash[k - 1]);
-            for (var i = 0; i < 4; i++) { //Записываем к-во акций игрока3 в поля
-                if (i == 0) {
-                    $("div#br3").find("h2.lot1").text(brokerLots[i]);
-                }
-                if (i == 1) {
-                    $("div#br3").find("h2.lot2").text(brokerLots[i]);
-                }
-                if (i == 2) {
-                    $("div#br3").find("h2.lot3").text(brokerLots[i]);
-                }
-                if (i == 3) {
-                    $("div#br3").find("h2.lot4").text(brokerLots[i]);
-                }
-            }
+            var divBr = $("div#br3");
+            // displayNumberShares(divBr, brokerLots);
+
         }
         if (k == 4) {
             $("#g4").text(val);
             $("#c4").text(usersCash[k - 1]);
-            for (var i = 0; i < 4; i++) { //Записываем к-во акций игрока4 в поля
-                if (i == 0) {
-                    $("div#br4").find("h2.lot1").text(brokerLots[i]);
-                }
-                if (i == 1) {
-                    $("div#br4").find("h2.lot2").text(brokerLots[i]);
-                }
-                if (i == 2) {
-                    $("div#br4").find("h2.lot3").text(brokerLots[i]);
-                }
-                if (i == 3) {
-                    $("div#br4").find("h2.lot4").text(brokerLots[i]);
-                }
-            }
+            var divBr = $("div#br4");
+            // displayNumberShares(divBr, brokerLots);
+
         }
+        displayNumberShares(divBr, brokerLots);
+
+        // function displayNumberShares (divBr , brokerLots) {
+        //     //Записываем к-во акций игрока k в поля
+        //     for (var i = 0; i < 4; i++) { 
+        //         if (i == 0) {
+        //             divBr.find("h2.lot1").text(brokerLots[i]);
+        //         }
+        //         if (i == 1) {
+        //             divBr.find("h2.lot2").text(brokerLots[i]);
+        //         }
+        //         if (i == 2) {
+        //             divBr.find("h2.lot3").text(brokerLots[i]);
+        //         }
+        //         if (i == 3) {
+        //             divBr.find("h2.lot4").text(brokerLots[i]);
+        //         }
+        //     }
+
+        // };
 
     }
     activeUserCash = usersCash[activeGamer - 1]; //Счет текущего игрока
@@ -134,7 +110,7 @@ $("body").on("click", "#butTrade", function() {
 
     $("#resultBidding").show();
 
-    $("input.sell , input.buy").val("0")  // обнуление содержимого
+    $("input.sell , input.buy").val("0") // обнуление содержимого
 
 });
 
@@ -270,86 +246,76 @@ $("body").on("click", "#changeRating", function() {
     if (activeGamer == 1) {
 
         $("#c1").text(usersCash[activeGamer - 1]);
-        for (var i = 0; i < 4; i++) { //Записываем к-во акций текущего игрока1 в поля
-            if (i == 0) {
-                $("div#br1").find("h2.lot1").text(brokerLots[i]);
-            }
-            if (i == 1) {
-                $("div#br1").find("h2.lot2").text(brokerLots[i]);
-            }
-            if (i == 2) {
-                $("div#br1").find("h2.lot3").text(brokerLots[i]);
-            }
-            if (i == 3) {
-                $("div#br1").find("h2.lot4").text(brokerLots[i]);
-            }
-        }
+
+        var divBr = $("div#br1");
+        // displayNumberShares(divBr, brokerLots);
+
     }
     if (activeGamer == 2) {
 
         $("#c2").text(usersCash[activeGamer - 1]);
-        for (var i = 0; i < 4; i++) { //Записываем к-во акций текущего игрока2 в поля
-            if (i == 0) {
-                $("div#br2").find("h2.lot1").text(brokerLots[i]);
-            }
-            if (i == 1) {
-                $("div#br2").find("h2.lot2").text(brokerLots[i]);
-            }
-            if (i == 2) {
-                $("div#br2").find("h2.lot3").text(brokerLots[i]);
-            }
-            if (i == 3) {
-                $("div#br2").find("h2.lot4").text(brokerLots[i]);
-            }
-        }
+        var divBr = $("div#br2");
+        // displayNumberShares(divBr, brokerLots);
+
     }
     if (activeGamer == 3) {
 
         $("#c3").text(usersCash[activeGamer - 1]);
-        for (var i = 0; i < 4; i++) { //Записываем к-во акций текущего игрока3 в поля
-            if (i == 0) {
-                $("div#br3").find("h2.lot1").text(brokerLots[i]);
-            }
-            if (i == 1) {
-                $("div#br3").find("h2.lot2").text(brokerLots[i]);
-            }
-            if (i == 2) {
-                $("div#br3").find("h2.lot3").text(brokerLots[i]);
-            }
-            if (i == 3) {
-                $("div#br3").find("h2.lot4").text(brokerLots[i]);
-            }
-        }
+
+        var divBr = $("div#br3");
+        // displayNumberShares(divBr, brokerLots);
+
     }
     if (activeGamer == 4) {
 
         $("#c4").text(usersCash[activeGamer - 1]);
-        for (var i = 0; i < 4; i++) { //Записываем к-во акций текущего игрока4 в поля
-            if (i == 0) {
-                $("div#br4").find("h2.lot1").text(brokerLots[i]);
-            }
-            if (i == 1) {
-                $("div#br4").find("h2.lot2").text(brokerLots[i]);
-            }
-            if (i == 2) {
-                $("div#br4").find("h2.lot3").text(brokerLots[i]);
-            }
-            if (i == 3) {
-                $("div#br4").find("h2.lot4").text(brokerLots[i]);
-            }
-        }
+
+        var divBr = $("div#br4");
+        // displayNumberShares(divBr, brokerLots);
+
     }
-    // $(".cangerLotCards").slideDown() ;  
-    // var lotCard = $("div.construct").html();
-    // console.log(lotCard);
-    // $("div.cangerLotCards").append(lotCard);
-    // $("div.cangerLotCards").append(lotCard);
-    // newLotCard.innerHTML = '"<div>Привет!</div>"'
+    displayNumberShares(divBr, brokerLots);
 
     var cangerLotCards = listCangerLotCards[activeGamer - 1]; //Создание карточек для изменения курса
 
-    
-    var initialHtml = $("div.cangerLotCards").html()
+
+    var initialHtml = $("div.cangerLotCards").html();
+
+    // если длина массива=0 то генерировать элемент "игра завершена" и вычислить капитал
+    if (cangerLotCards.length == 0) {
+        var lotCard = $("div.endGame").html();
+        $("div.cangerLotCards").append(lotCard);
+        $(".cangerLotCards").slideDown(1800);
+        for (var i = 0; i < 4; i++) {
+            var brokerLots = userslots[activeGamer - 1];
+            var brokerLot = brokerLots[i];
+            var ratingLot = ratingLots[i];
+            var userCash = usersCash[activeGamer - 1];
+            userCash = userCash + brokerLot * ratingLot;
+            usersCash[activeGamer - 1] = userCash;
+            brokerLots[i] = 0;
+        }
+        userslots[activeGamer - 1] = brokerLots;
+        $(".lotCard").click(function() {
+            $(".cangerLotCards").slideUp(1800); //скрываем игровые карточки
+            $("div.cangerLotCards").html(initialHtml); //записываем начальный html
+            if (activeGamer !== 1) {
+                $("#br1").slideDown(2500);
+            }
+            if (activeGamer !== 2) {
+                $("#br2").slideDown(2500);
+            }
+            if (activeGamer !== 3) {
+                $("#br3").slideDown(2500);
+            }
+            if (activeGamer !== 4) {
+                $("#br4").slideDown(2500);
+            }
+            moveNextPlaeyr();
+        });
+
+        return;
+    };
 
     for (let key in cangerLotCards) {
         var t = +key + 1;
@@ -386,10 +352,11 @@ $("body").on("click", "#changeRating", function() {
         var lotCard = cangerLotCards[nlc - 1];
         cangerLotCards.splice(nlc - 1, 1);
         console.log(cangerLotCards);
+        maxRating = 1;
         //сохраняем остаток карточек игрока в массиве
         listCangerLotCards[activeGamer - 1] = cangerLotCards;
         //изменение курсов и запись новых значений в игровое поле
-        var maxRating = 0;
+
         for (var i = 0; i < 4; i++) {
             var ratingLot = ratingLots[i];
             var cr = lotCard[i];
@@ -421,21 +388,8 @@ $("body").on("click", "#changeRating", function() {
 
         }
         console.log(maxRating);
-        for (var i = 0; i < 4; i++) {
-            var ratingDiagram = Math.round(ratingLots[i] * 100 / maxRating);
-            if (i == 0) {
-                $("#s1").width(ratingDiagram + "%");
-            }
-            if (i == 1) {
-                $("#s2").width(ratingDiagram + "%");
-            }
-            if (i == 2) {
-                $("#s3").width(ratingDiagram + "%");
-            }
-            if (i == 3) {
-                $("#s4").width(ratingDiagram + "%");
-            }
-        }
+        displayRatingDiagram(maxRating, ratingLots);
+
 
         if (activeGamer !== 1) {
             $("#br1").slideDown(2500);
@@ -451,19 +405,7 @@ $("body").on("click", "#changeRating", function() {
         }
 
         //Передаем ход следующему игроку
-        if (activeGamer < 4) {
-            activeGamer = activeGamer + 1;
-            console.log("activeGamer:-" + activeGamer);
-
-        } else {
-            console.log("activeGamer:-" + activeGamer);
-            activeGamer = 1;
-            console.log("activeGamer:-" + activeGamer);
-        }
-        // alert("g1");
-        console.log("g1");
-        $("#butNext").show();
-        // gamerStep(activeGamer);
+        moveNextPlaeyr();
 
     });
 
@@ -537,8 +479,64 @@ var listCangerLotCards = [cangerLotCards1, cangerLotCards2, cangerLotCards3, can
 var activeGamer = 4; //Текущий игрок
 var activeUserCash;
 // var activeUserCash = usersCash[activeGamer - 1]; //Счет текущего игрока
-var maxLot; //
+var maxLot;
+var maxRating = 1;
 
+// Функции
+
+//Записываем к-во акций игрока  в поля
+function displayNumberShares(divBr, brokerLots) {
+
+    for (var i = 0; i < 4; i++) {
+        if (i == 0) {
+            divBr.find("h2.lot1").text(brokerLots[i]);
+        }
+        if (i == 1) {
+            divBr.find("h2.lot2").text(brokerLots[i]);
+        }
+        if (i == 2) {
+            divBr.find("h2.lot3").text(brokerLots[i]);
+        }
+        if (i == 3) {
+            divBr.find("h2.lot4").text(brokerLots[i]);
+        }
+    }
+
+};
+
+//Изменяем графики курсов
+function displayRatingDiagram() {
+
+    for (var i = 0; i < 4; i++) {
+        var ratingDiagram = Math.round(ratingLots[i] * 100 / maxRating);
+        if (i == 0) {
+            $("#s1").width(ratingDiagram + "%");
+        }
+        if (i == 1) {
+            $("#s2").width(ratingDiagram + "%");
+        }
+        if (i == 2) {
+            $("#s3").width(ratingDiagram + "%");
+        }
+        if (i == 3) {
+            $("#s4").width(ratingDiagram + "%");
+        }
+    }
+};
+
+//Паредаем ход следующему игроку
+function moveNextPlaeyr() {
+    if (activeGamer < 4) {
+            activeGamer = activeGamer + 1;
+            console.log("activeGamer:-" + activeGamer);
+
+        } else {
+            console.log("activeGamer:-" + activeGamer);
+            activeGamer = 1;
+            console.log("activeGamer:-" + activeGamer);
+        }
+    $("#butNext").show();
+};
 
 // for (var k = 0; k < 2; k++) { //Выбираем игрока
 //     brokerLots = userslots[k]; //Акции игрока

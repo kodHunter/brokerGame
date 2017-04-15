@@ -149,10 +149,10 @@ div.brokerCards div.brokerCard {
 	font-size: 20px;
 	font-weight: bolder;
 }
-div.cangerLotCards {
-	/*display: inline-block;*/
+.cangerLotCards {
+	display: inline-block;
 	visibility: hidden
-	float: left;
+	/*float: left;*/
 	width: 700px;
 	max-width: 700px;
 	height: 90%;
@@ -161,8 +161,8 @@ div.cangerLotCards {
 	border: solid 2px yellow;
 	/*border-right: 0;*/
 	/*overflow-y: scroll;*/
-	/*overflow: scroll;*/
-	overflow: auto;
+	overflow: scroll;
+	/*overflow: auto;*/
 }
 div.cangerLotCards p {
 	padding: 18px;
@@ -186,6 +186,9 @@ ul.lotCard {
 	width: 80px;
 	border: solid 4px;
 }
+ul.final {
+	width: 660px;
+}
 ul.lotCard:focus {
      background: #ffe; /* Цвет фона */
      border: 1px solid #29B0D9; /* Параметры рамки */
@@ -197,7 +200,7 @@ ul.lotCard:focus {
 	color: red;
 	
 	font-size: 38px;
-	padding-top: 18px;
+	padding-top: 17px;
 	text-align: center;
 	font-weight: bolder;
 }
